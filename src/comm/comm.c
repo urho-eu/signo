@@ -146,12 +146,6 @@ void in_received_handler(DictionaryIterator *received, void *context) {
       case PHONE_WELCOMES:
         watch_sends_status(WATCH_GREETS);
         return;
-      case DATA_SAVE_OK:
-        update_status(i18n.data_save_ok);
-        return;
-      case DATA_SAVE_FAILED:
-        update_status(i18n.data_save_failed);
-        return;
       default:
         return;
     }
@@ -160,11 +154,7 @@ void in_received_handler(DictionaryIterator *received, void *context) {
 	tuple = dict_find(received, COMMAND_KEY);
 	if (tuple) {
 		APP_LOG(APP_LOG_LEVEL_DEBUG, "Received COMMAND_KEY from phone: %d", (int)tuple->value->uint8);
-    // possible commands: toggle measuring, short pulse
-    if ((int)tuple->value->uint8 == TOGGLE_MEASURING_FROM_PHONE) {
-      APP_LOG(APP_LOG_LEVEL_DEBUG, "Do TOGGLE_MEASURING_FROM_PHONE");
-      toggle_measuring();
-    }
+    // possible commands: short pulse
     if ((int)tuple->value->uint8 == SHORT_PULSE) {
       APP_LOG(APP_LOG_LEVEL_DEBUG, "Do SHORT_PULSE");
       vibes_short_pulse();

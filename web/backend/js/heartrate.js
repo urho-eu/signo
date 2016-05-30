@@ -6,9 +6,12 @@ jQuery(document).ready(function()
 {
   d3.csv("js/data/heartrate.csv", function(data) {
 
-    var chartId = ".chart.heartrate";
-    var width = 500, height = 250, padding = 50;
-    var margin = { top: 10, right: 10, bottom: 40, left: 10 };
+    var chartSelector = ".chart.heartrate";
+    var height = 200;
+    var padding = 50;
+    var margin = { top: 10, right: 10, bottom: 10, left: 10 };
+
+    width = parseInt(d3.select(chartSelector).style("width"));
 
     var maxSteps = d3.max(data, function(d) {
       return Number(d.Steps);
@@ -20,18 +23,18 @@ jQuery(document).ready(function()
     console.log("min - max date" + minDate + " -> " + maxDate);
 
     // create an svg container
-    var vis = d3.select(chartId)
+    var vis = d3.select(chartSelector)
       .append("svg")
           .attr("class", "heartrate")
           .attr("width", width + margin.left + margin.right)
           .attr("height", height + margin.top + margin.bottom)
-      .append("g")
-          .attr("transform",
-                "translate(" + margin.left + "," + margin.top + ")");
+      //~ .append("g")
+          //~ .attr("transform",
+                //~ "translate(" + margin.left + "," + margin.top + ")");
 
     var xScale = d3.time.scale()
       .domain([minDate, maxDate])
-      .range([padding, width - padding * 2]);
+      .range([padding, width]);
 
     var yScale = d3.scale.linear()
       .domain([0, maxSteps])

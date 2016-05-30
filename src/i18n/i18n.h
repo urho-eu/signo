@@ -4,6 +4,8 @@
  *
  */
 typedef struct default_i18n {
+  char *idle;
+  char *login;
   char *title;
   char *pressed_back;
   char *pressed_up;
@@ -13,18 +15,6 @@ typedef struct default_i18n {
   char *multi_pressed_up;
   char *multi_pressed_select;
   char *multi_pressed_down;
-  char *idle;
-  char *login;
-  char *started;
-  char *stopped;
-  char *finished;
-  char *measuring_starts;
-  char *measuring_ends;
-  char *prefix_countdown;
-  char *sampling_countdown;
-  char *stopped_by_user;
-  char *data_save_ok;
-  char *data_save_failed;
   char *alert_emergency;
   char *alert_fall;
   char *alert_nomove;

@@ -6,32 +6,36 @@ jQuery(document).ready(function()
 {
   d3.csv("js/data/steps.csv", function(data) {
 
-    var chartId = ".chart.activity";
-    var width = 500, height = 250, padding = 50;
+    var chartSelector = ".chart.activity";
+    var height = 200;
+    var padding = 50;
     var margin = { top: 10, right: 10, bottom: 10, left: 10 };
+
+    width = parseInt(d3.select(chartSelector).style("width"));
+    //height = parseInt(d3.select(chartSelector).style("height"));
 
     var maxSteps = d3.max(data, function(d) {
       return Number(d.Steps);
     });
-    console.log("max steps: " + maxSteps);
+    console.log('w x h', width + ' x ' + height);
 
     var minDate = new Date(data[0].Timestamp * 1000);
     var maxDate = new Date(data[data.length - 1].Timestamp * 1000);
     console.log("min - max date" + minDate + " -> " + maxDate);
 
     // create an svg container
-    var vis = d3.select(chartId)
+    var vis = d3.select(chartSelector)
       .append("svg")
           .attr("class", "steps")
           .attr("width", width + margin.left + margin.right)
           .attr("height", height + margin.top + margin.bottom)
-      .append("g")
-          .attr("transform",
-                "translate(" + margin.left + "," + margin.top + ")");
+      //~ .append("g")
+          //~ .attr("transform",
+                //~ "translate(" + margin.left + "," + margin.top + ")");
 
     var xScale = d3.time.scale()
       .domain([minDate, maxDate])
-      .range([padding, width - padding * 2]);
+      .range([padding, width]);
 
     var yScale = d3.scale.linear()
       .domain([0, maxSteps])
@@ -85,5 +89,44 @@ jQuery(document).ready(function()
       .attr("x", 60)
       .attr("y", 25)
       .text("Step counts");
+
+    // chart resizing
+    //d3.select(window).on('resize', chartResize);
+
+    /**
+     * Chart resizing
+     */
+    function chartResize() {
+
+      var chartSelector = ".chart.activity";
+      /* Find the new window dimensions */
+      var width = parseInt(d3.select(chartSelector).style("width")) - margin.right * 2;
+      var height = parseInt(d3.select(chartSelector).style("height")) - margin.top * 2;
+
+      console.log('d3 resize w x h: ' + width + ' x ' + height);
+
+      xScale.domain([minDate, maxDate])
+        .range([0, width - padding * 2]);
+
+      yScale.range([height, 0]).nice();
+
+      /* Update the axis with the new scale */
+      vis.select('.x.axis')
+        .attr("transform", "translate(0," + (height - padding) + ")")
+        .call(xAxis);
+
+      vis.select('.y.axis')
+        .attr("transform", "translate(" + 10 + ", 0)")
+        .call(yAxis);
+
+      vis.selectAll(".x.axis text")
+        .attr("transform", function(d) {
+        return "translate(0," + 30 + ") rotate(45)";
+        });
+
+      vis.selectAll('.line.steps')
+        .attr("d", steps(data));
+    }
+
   });
 });

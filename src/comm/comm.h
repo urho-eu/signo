@@ -16,10 +16,7 @@ typedef enum {
 typedef enum {
   PHONE_WELCOMES = 1,
   API_WELCOMES = 51,
-  TOGGLE_MEASURING_FROM_PHONE = 52,
   SHORT_PULSE = 61,
-  DATA_SAVE_OK = 71,
-  DATA_SAVE_FAILED = 72
 } WatchCommand;
 
 // statues / commands / messages from watch to phone
@@ -34,9 +31,6 @@ typedef enum {
   DMB_CONNECT = 32,
   DMB_DISCONNECT = 33,
   DMB_RECONNECT = 34,
-  // measuring / data
-  TOGGLE_MEASURING_FROM_WATCH = 41,
-  SAVE_TO_FILE = 42,
   // alerts
   ALERT_FALL = 61,
   ALERT_NOMOVE = 62,

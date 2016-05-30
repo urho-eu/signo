@@ -18,7 +18,7 @@ jQuery(document).ready(function()
   });
 
   // reset alerts
-  jQuery('.alerts .indicator').on('dblclick', function(event) {
+  jQuery('.alerts .indicator').on('dblclick tap taphold', function(event) {
     if (jQuery(this).hasClass('alert')) {
       var type = jQuery(this).attr('data-type');
       jQuery(this).removeClass('alert');
@@ -220,13 +220,13 @@ function handlerDmbAlert(msg) {
     if (typeof dmb_params.allowed[json.token] !== 'undefined') {
       switch (json.payload) {
         case dmb_params.alerts.ALERT_FALL:
-          signoLog('message', 'I felt down and need help!', 'client');
-          signoLog('alert', "Patient felt down and needs help.");
+          signoLog('message', 'I fell down and need help!', 'client');
+          signoLog('alert', "Patient fell down and needs help.");
           triggerAlertFall(true);
           break;
         case dmb_params.alerts.ALERT_NOMOVE:
-          signoLog('message', 'I can not move and need help!', 'client');
-          signoLog('alert', "Patient can not move and needs help.");
+          signoLog('message', 'I cannot move and need help!', 'client');
+          signoLog('alert', "Patient cannot move and needs help.");
           triggerAlertNoMove(true);
           break;
         case dmb_params.alerts.ALERT_HEALTH:

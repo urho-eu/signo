@@ -3,3 +3,8 @@
 .lock-waf*
 build
 screenshots
+gradle
+.gradle
+.idea
+app/libs
+

@@ -1,0 +1,285 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  font: 13px Helvetica, Arial;
+}
+
+#chat form {
+  margin: 2px 0 0 0;
+  padding: 1px;
+  bottom: 0;
+}
+
+#chat .input {
+  margin-right: 0;
+  padding: 0;
+  border-top: 1px solid grey;
+  border-left: 1px solid grey;
+  border-bottom: 1px solid grey;
+  border-right: none;
+  border-radius: 0;
+}
+
+#chat .btn {
+  margin-left: 0;
+  padding: 0;
+  border-top: 1px solid gray;
+  border-right: 1px solid gray;
+  border-bottom: 1px solid gray;
+  border-left: none;
+  border-radius: 0;
+}
+
+#chat form input {
+  background: steelblue none repeat scroll 0 0;
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+  width: 100%;
+  height: 35px;
+}
+
+#chat form button {
+  color: white;
+  font-weight: bold;
+  width: 100%;
+  background: rgba(117, 170, 89, 0.83);
+  height: 35px;
+  border: none;
+}
+
+#chat form button span {
+  margin-right: 10px;
+}
+
+.signolog {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  height: 19em;
+  overflow: auto;
+  clear: left;
+}
+
+.signolog li {
+  padding: 5px 10px;
+  margin: 0;
+}
+
+.signolog li:nth-child(odd) {
+  background: #eeeeee;
+}
+
+.signolog li.broadcast {
+  color: green;
+}
+
+.signolog li.private {
+  color: red;
+}
+
+.signolog li.backend {
+  color: #337ab7;
+}
+
+.signolog li.message {
+  font-weight: bold;
+  color: green;
+}
+
+.signolog li.alert {
+  font-weight: bold;
+  color: red;
+}
+
+.signolog li.client.message {
+  font-weight: bold;
+  color: red;
+}
+
+.dmb .status {
+  height: 5px;
+  line-height: 5px;
+  vertical-align: top;
+  position: fixed;
+  z-index: 100000;
+  top: 0px;
+  left: 0px;
+  width: 5px;
+}
+.dmb .status.active {
+  background-color: lightgreen;
+}
+.dmb .status.unread {
+  background-color: yellow;
+}
+
+/* Remove the navbar's default margin-bottom and rounded borders */
+.navbar {
+  margin-bottom: 0;
+  border-radius: 0;
+}
+
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+.row.content {
+/*
+  height: 700px
+*/
+}
+
+/* Set gray background color and 100% height */
+.sidenav {
+  padding-top: 20px;
+  background-color: #f1f1f1;
+  height: 100%;
+}
+
+/* Set black background color, white text and some padding */
+footer {
+  background-color: #555;
+  color: white;
+  padding: 15px;
+}
+
+.nav-pills li {
+  text-align: left;
+}
+
+.nav-tabs li {
+  font-weight: bold;
+}
+
+.nav-tabs .glyphicon {
+  font-weight: normal;
+  margin-right: 10px;
+}
+
+div.patient {
+  margin-bottom: 1em;
+}
+
+div.patient h3 {
+  border-bottom: 2px solid gray;
+  padding-bottom: 3px;
+  margin-bottom: 1em;
+}
+
+div.patient h4 {
+  border-bottom: 1px solid gray;
+  padding-bottom: 3px;
+  margin-bottom: 0.5em;
+}
+
+div.patient .alerts {
+  padding-bottom: 1em;
+  margin: 0;
+}
+
+.well {
+  padding: 6px;
+  text-align: left;
+  border: none;
+  margin-bottom: 10px;
+}
+
+.well h5 {
+  text-align: left;
+  border-bottom: 1px solid lightgrey;
+  padding-bottom: 4px;
+  margin: 0 0 10px 0;
+  font-weight: bold;
+}
+
+.alerts > div {
+  text-align: center;
+}
+
+.alerts .indicator {
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.alerts .alert {
+  margin: 0;
+}
+
+.alerts .fall {
+  background-image: url(../images/fall_ok.png);
+}
+.alerts .fall.alert {
+  background-image: url(../images/fall_alert.png);
+}
+.alerts .nomove {
+  background-image: url(../images/nomove_ok.png);
+}
+.alerts .nomove.alert {
+  background-image: url(../images/nomove_alert.png);
+}
+.alerts .heart {
+  background-image: url(../images/heart_ok.png);
+}
+.alerts .heart.alert {
+  background-image: url(../images/heart_alert.png);
+}
+.alerts .connection {
+  background-image: url(../images/connection_ok.png);
+}
+.alerts .connection.alert {
+  background-image: url(../images/connection_alert.png);
+}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+  .sidenav {
+    height: auto;
+    padding: 15px;
+  }
+  .row.content {height:auto;}
+}
+
+/** SVG styling */
+.axis path,
+.axis .domain,
+.axis line {
+  stroke-width: 1;
+  stroke: black;
+  fill: none;
+}
+
+.line {
+  stroke-width: 2;
+  fill: none;
+}
+
+.line.steps {
+  stroke: lightGreen;
+}
+
+.line.heartrate {
+  stroke: orange;
+}
+
+.legend.bar {
+  height: 2px;
+  width: 40px;
+}
+
+.legend.bar.steps {
+  stroke: lightGreen;
+  fill: lightGreen;
+}
+
+.legend.bar.heartrate {
+  stroke: orange;
+  fill: orange;
+}
+

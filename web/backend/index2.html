@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Signo@ULF</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link media="all" type="text/css" href="css/dmb.css" rel="stylesheet">
+  </head>
+  <body>
+    <h1>Signo Dashboard</h1>
+
+    <div class="dmb">
+      <div class="status"></div>
+      <div class="message"></div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="panel panel-default">
+        <div class="panel-heading">Patients</div>
+        <ul class="list-group clients">
+          <li class="list-group-item client" data-id="Lorem ipsum">Lorem ipsum</li>
+          <li class="list-group-item client dummy hidden" data-id="dummy">dummy</li>
+        </ul>
+      </div>
+
+      <div class="panel panel-default overall">
+        <div class="panel-heading">Overall status</div>
+        <div>
+        overall status
+        </div>
+      </div>
+
+      <div class="panel panel-default details dummy hidden" data-id="dummy">
+        <div class="panel-heading id">Name or ID</div>
+        <div class="rawdata">
+        details and data
+        </div>
+      </div>
+    </div>
+
+    <ul id="messages"></ul>
+    <form action="">
+      <input id="m" autocomplete="off" /><button>Send</button>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/dmb_server.js"></script>
+  </body>
+</html>

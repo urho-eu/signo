@@ -1,0 +1,39 @@
+{
+  "uuid": "cd5bb437-be57-4fe3-a1d3-df5709db6f3c",
+  "shortName": "Signo Demo",
+  "longName": "Signo Home Care Demo",
+  "companyName": "Urho Ltd",
+  "versionLabel": "0.1",
+  "sdkVersion": "3",
+  "targetPlatforms": ["aplite", "basalt"],
+  "watchapp": {
+    "watchface": false
+  },
+  "capabilities": [
+    "health",
+    "configurable"
+  ],
+  "appKeys": {
+    "STATUS_KEY": 0,
+    "COMMAND_KEY": 1,
+    "MESSAGE_KEY": 2,
+    "ALERT_KEY": 3,
+    "LOG_KEY": 4,
+    "BROADCAST_KEY": 9
+  },
+  "resources": {
+    "media": [
+      {
+        "type": "bitmap",
+        "name": "THUMBS_UP",
+        "file": "icons/thumbs-up.png"
+      },
+      {
+        "type": "bitmap",
+        "name": "THUMBS_DOWN",
+        "file": "icons/thumbs-down.png"
+      }
+
+    ]
+  }
+}

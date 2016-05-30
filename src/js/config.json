@@ -1,0 +1,52 @@
+/**
+ *
+ * All the necessary configuration that is used in the phone app
+ *
+ */
+{
+  /**
+   * PLEASE DO NOT CHANGE SETTINGS BELOW
+   */
+  'api':
+  {
+    'server': 'http://signo.urho.eu',
+  },
+  'dmb':
+  {
+    'enabled': true,
+    'server': 'http://signo.urho.eu',
+    'params':
+    {
+      'bkid': 'signo',
+      'token': '',
+      'payload': ''
+    }
+  },
+  /**
+   * Commands sent from watch to phone
+   * See also comm.h
+   * See also companion app
+   */
+  'apiCommands':
+  {
+    'WATCH_LOGIN': 21,
+    'WATCH_SENDS_TEXT': 31,
+    'DMB_CONNECT': 32,
+    'DMB_DISCONNECT': 33,
+    'DMB_RECONNECT': 34,
+    'ALERT_FALL': 61,
+    'ALERT_NOMOVE': 62,
+    'ALERT_HEALTH': 63,
+    'ALERT_CONNECTION': 64
+  },
+  /**
+   * Commands sent from phone to watch
+   * See also comm.h
+   * See also companion app
+   */
+  'watchCommands':
+  {
+    'WATCH_CHECK_API_ACCESS': 51,
+    'API_WELCOMES': 52,
+  },
+};

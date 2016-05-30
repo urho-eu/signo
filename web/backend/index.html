@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Signo Home Care :: Smart watch based demo</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/dmb.css" media="all" type="text/css"  >
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Signo Home Care Demo</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-info-sign">About</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-cog">Settings</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid text-center">
+      <div class="row content">
+        <div class="col-sm-2 sidenav">
+          <ul class="nav nav-pills nav-stacked">
+            <li class="active"><a href="#">Person Details</a></li>
+            <li><a href="#">Call Person</a></li>
+            <li><a href="#">Contact Family</a></li>
+            <li><a href="#">Request Home Call</a></li>
+            <li><a href="#">Emergency 112/911</a></li>
+            <li><a href="#">Update Info</a></li>
+            <li><a href="#">Settings</a></li>
+          </ul>
+        </div>
+
+        <div class="col-sm-6 text-left">
+          <div class="patient">
+            <h3>Person Details</h3>
+            <div class="row">
+              <div class="col-sm-2 text-left name">Name</div>
+              <div class="col-sm-10 name">Matti Meikäläinen</div>
+            </div>
+            <div class="row">
+              <div class="col-sm-2 text-left name">Signo ID</div>
+              <div class="col-sm-10 watch"></div>
+            </div>
+            <div class="row">
+              <div class="col-sm-2 text-left address">Home Address</div>
+              <div class="col-sm-10 address">
+                <a target="_blank" href="https://maps.google.com?saddr=Current+Location&daddr=Kotipolku+1+Helsinki+Finland">Kotipolku 1, Helsinki, Finland</a></div>
+            </div>
+            <div class="row">
+              <div class="col-sm-2 text-left name">Phone</div>
+              <div class="col-sm-10 name">+358 40 123 4567</div>
+            </div>
+            <h4>Alerts</h4>
+            <div class="row alerts">
+              <div class="col-xs-3 col-sm-3">
+                <span class="indicator fall" data-type="fall"></span>
+              </div>
+              <div class="col-xs-3 col-sm-3">
+                <span class="indicator nomove" data-type="nomove"></span>
+              </div>
+              <div class="col-xs-3 col-sm-3">
+                <span class="indicator heart" data-type="health"></span>
+              </div>
+              <div class="col-xs-3 col-sm-3">
+                <span class="indicator connection" data-type="connection"></span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#chat" aria-controls="chat" role="tab" data-toggle="tab">
+                  <span class="glyphicon glyphicon-comment"></span>Quick Messages
+                </a>
+              </li>
+              <li role="presentation">
+                <a href="#events" aria-controls="events" role="tab" data-toggle="tab">
+                  <span class="glyphicon glyphicon-th-list"></span>Events
+                </a>
+              </li>
+            </ul>
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane active" id="chat">
+                <form action="">
+                  <div class="col-xs-10 input"><input id="m" autocomplete="off" autofocus="true" placeholder="Enter your message"/></div>
+                  <div class="col-xs-2 btn"><button><span class="glyphicon glyphicon-send" aria-hidden="true"></span>Send</button></div>
+                </form>
+                <ul class="signolog" id="messages"></ul>
+                <ul class="hidden" id="broadcasts"></ul>
+              </div>
+              <div role="tabpanel" class="tab-pane" id="events">
+                <ul class="signolog" id="logs"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-4 sidenav">
+          <div class="row well">
+            <h5>Activity Monitor</h5>
+            <div class="col-sm-4">
+              <div class="chart activity"></div>
+            </div>
+          </div>
+          <div class="row well">
+            <h5>Health Monitor</h5>
+            <div class="col-sm-4">
+              <div class="chart heartrate"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer navbar-fixed-bottom">
+      <p>Signo Home Care :: Smart watch based demo</p>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="js/moment.min.js"></script>
+    <script src="js/dmb_server.js"></script>
+    <script src="js/activity.js"></script>
+    <script src="js/heartrate.js"></script>
+  </body>
+</html>
